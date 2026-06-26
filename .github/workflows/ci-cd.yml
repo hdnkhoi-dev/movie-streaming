@@ -68,7 +68,7 @@ jobs:
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SERVER_HOST }}
-          username: root
+          username: ubuntu
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             docker pull ${{ env.IMAGE_NAME }}:latest
@@ -79,4 +79,4 @@ jobs:
               --restart always \
               -p 3000:3000 \
               ${{ env.IMAGE_NAME }}:latest
-            echo "✅ Deploy thành công!"
+            echo "Deploy thành công!"
